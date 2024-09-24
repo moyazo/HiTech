@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AuthController!{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+    
+    {% if signError is defined %}
+        <div class="alert alert-danger">
+            {{ signError }}
+        </div>
+    {% endif %}
+
+    {# Display field-specific errors #}
+    {% for field in form %}
+        <div class="form-group">
+            {{ form_label(field) }}
+            {{ form_widget(field) }}
+            {# Display errors for the specific field #}
+            {{ form_errors(field) }}
+        </div>
+    {% endfor %}
+
+    <button id="BtnSubmit" type="submit" class="btn btn-primary">Registrar</button>
+    
+    {{ form_end(form) }}
+{% endblock %}
+
